@@ -1,67 +1,37 @@
-import { Link } from "react-router-dom";
-
+// Home.jsx
 function Home() {
   return (
-    <div className="flex items-center justify-center min-h-[90vh]">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h1 className="text-3xl font-bold text-center mb-6">
-          Welcome to SmartSpend
-        </h1>
+    <div className="flex flex-col items-center text-center px-4 sm:px-6 md:px-8 py-16 sm:py-20">
+      {/* Heading */}
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+        SmartSpend
+      </h1>
 
-        {/* Login Section */}
-        <div className="mb-6">
-          <h2 className="text-xl font-semibold mb-3">Login</h2>
+      {/* Description */}
+      <p className="text-base sm:text-lg md:text-xl text-gray-600 mt-4 max-w-xl sm:max-w-2xl">
+        SmartSpend helps you track expenses, manage income,
+        and analyze your spending with smart reports and charts.
+      </p>
 
-          <input
-            type="email"
-            placeholder="Email"
-            className="w-full mb-3 p-2 border rounded"
-          />
+      {/* Buttons */}
+      <div className="mt-6 flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
+        <a
+          href="/signup"
+          className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition w-full sm:w-auto"
+        >
+          Get Started
+        </a>
 
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full mb-3 p-2 border rounded"
-          />
-
-          <Link to="/dashboard">
-            <button className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
-              Login
-            </button>
-          </Link>
-        </div>
-
-        <hr className="my-6" />
-
-        {/* Signup Section */}
-        <div>
-          <h2 className="text-xl font-semibold mb-3">Sign Up</h2>
-
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="w-full mb-3 p-2 border rounded"
-          />
-
-          <input
-            type="email"
-            placeholder="Email"
-            className="w-full mb-3 p-2 border rounded"
-          />
-
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full mb-3 p-2 border rounded"
-          />
-
-          <button className="w-full bg-green-600 text-white p-2 rounded hover:bg-green-700">
-            Create Account
-          </button>
-        </div>
+        <a
+          href="/login"
+          className="border border-blue-600 text-blue-600 px-6 py-2 rounded-lg hover:bg-blue-50 transition w-full sm:w-auto"
+        >
+          Login
+        </a>
       </div>
     </div>
   );
 }
 
 export default Home;
+

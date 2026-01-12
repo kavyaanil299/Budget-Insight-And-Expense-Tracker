@@ -1,12 +1,13 @@
+// ExpenseForm.jsx
 import { useState } from "react";
 
 function ExpenseForm({ addTransaction }) {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
-  const [type, setType] = useState("expense"); // income or expense
+  const [type, setType] = useState("expense");
   const [category, setCategory] = useState("Food");
 
-  const handleSubmit = (e) => {
+  const submit = (e) => {
     e.preventDefault();
     if (!title || !amount) return;
 
@@ -23,11 +24,14 @@ function ExpenseForm({ addTransaction }) {
   };
 
   return (
-    <form className="bg-white p-4 rounded shadow" onSubmit={handleSubmit}>
-      <h3 className="text-lg font-semibold mb-3">Add Transaction</h3>
+    <form
+      onSubmit={submit}
+      className="bg-white p-4 sm:p-6 rounded-lg shadow w-full max-w-md mx-auto"
+    >
+      <h3 className="font-semibold mb-4 text-lg text-center">Add Transaction</h3>
 
       <input
-        className="w-full mb-3 p-2 border rounded"
+        className="w-full border border-gray-300 p-2 mb-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
         placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
@@ -35,14 +39,14 @@ function ExpenseForm({ addTransaction }) {
 
       <input
         type="number"
-        className="w-full mb-3 p-2 border rounded"
+        className="w-full border border-gray-300 p-2 mb-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
         placeholder="Amount"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
       />
 
       <select
-        className="w-full mb-3 p-2 border rounded"
+        className="w-full border border-gray-300 p-2 mb-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
         value={type}
         onChange={(e) => setType(e.target.value)}
       >
@@ -52,7 +56,7 @@ function ExpenseForm({ addTransaction }) {
 
       {type === "expense" && (
         <select
-          className="w-full mb-3 p-2 border rounded"
+          className="w-full border border-gray-300 p-2 mb-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
@@ -63,7 +67,7 @@ function ExpenseForm({ addTransaction }) {
         </select>
       )}
 
-      <button className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
+      <button className="bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700 transition">
         Add
       </button>
     </form>
